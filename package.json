@@ -1,0 +1,45 @@
+{
+  "name": "mailforms",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/test.js | faucet"
+  },
+  "pre-commit": "npm test",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://git.puzzle.ch/pitc_sys/mailforms.git"
+  },
+  "author": "Lorenz Bischof",
+  "dependencies": {
+    "async": "^1.4.2",
+    "basic-auth": "^1.0.3",
+    "bluebird": "^2.10.2",
+    "body-parser": "^1.14.1",
+    "cheerio": "^0.19.0",
+    "directory-to-object": "^1.1.1",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "grapnel": "^0.6.2",
+    "hjson": "^1.7.4",
+    "jade": "^1.11.0",
+    "jsdom": "^6.5.1",
+    "json-editor": "^0.7.23",
+    "json-human": "marianoguerra/json.human.js",
+    "juice": "^1.5.0",
+    "ldapjs": "^0.7.1",
+    "markup-js": "^1.5.21",
+    "nodemailer": "^1.5.0",
+    "uglify-js": "^2.4.24",
+    "xr": "^0.1.13"
+  },
+  "devDependencies": {
+    "fake-fs": "^0.5.0",
+    "faucet": "0.0.1",
+    "pre-git": "^0.6.2",
+    "rewire": "^2.3.4",
+    "tape": "^4.2.0"
+  }
+}

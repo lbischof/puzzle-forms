@@ -1,0 +1,72 @@
+{
+	"type": "object",
+	"properties": {
+		"to": {
+			"type": "string",
+			"default": "systems@domain.ch",
+			"options": {
+				"hidden": true
+			}
+		},
+		"subject": {
+			"type": "string",
+			"template": "Neuer Member: {{name}}, {{vorname}}",
+			"watch": {
+				"name": "name",
+				"vorname": "vorname"
+			},
+			"options": {
+				"hidden": true
+			}
+		},
+		"name": {
+			"type": "string",
+			"title": "Name: *",
+			"description": "Name des neuen Members.",
+			"minLength": 1
+		},
+		"vorname": {
+			"type": "string",
+			"title": "Vorname: *",
+			"minLength": 1
+		},
+		"eintritt": {
+			"title": "Eintrittsdatum: *",
+			"type": "string",
+			"format": "date",
+			"minLength": 1
+		},
+		"geburtsdatum": {
+			"title": "Geburtstag: *",
+			"type": "string",
+			"format": "date",
+			"minLength": 1
+		},
+		"benötigt": {
+			"type": "array",
+			"format": "checkbox",
+			"title": "Benötigt:",
+			"uniqueItems": true,
+			"items": {
+				"type": "string",
+				"enum": [
+					"Teamserver",
+					"Notebook 12\"",
+					"Notebook 14\""
+				]
+			}
+		},
+		"bereich": {
+			"type": "string",
+			"title": "Bereich: *",
+            "enum": ["/sys","/dev/one","/dev/two","/dev/tre","/ux","/mid","Backoffice", "Personal","Verkauf","Finanzen und Controlling", "Marketing","Technical Board"],
+			"minLength": 1
+		},
+		"Bemerkungen": {
+            "type": "string",
+            "title": "Bemerkungen:",
+            "format": "textarea"
+        }
+
+	}
+}

@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "to": {
+            "type": "string",
+            "default": "systems@domain.ch",
+            "options": {
+                "hidden": true
+            }
+        },
+        "subject": {
+            "type": "string",
+            "template": "LDAP Gruppe: {{name}}",
+            "watch": {
+                "name": "name"
+            },
+            "options": {
+                "hidden": true
+            }
+        },
+        "name": {
+            "type": "string",
+            "title": "LDAP Gruppe:",
+            "description": "Name der LDAP Gruppe.",
+            "minLength": 1
+        },
+        "members": {
+            "type": "string",
+            "title": "Members Namen:",
+            "description": "Name der Gruppen Members.",
+            "minLength": 1
+        }
+    }
+}

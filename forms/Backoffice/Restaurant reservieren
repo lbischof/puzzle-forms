@@ -1,0 +1,53 @@
+{
+	"type": "object",
+	"properties": {
+		"to": {
+			"type": "string",
+			"default": "backoffice@domain.ch",
+			"options": {
+				"hidden": true
+			}
+		},
+		"subject": {
+			"type": "string",
+			"template": "Restaurantreservierung: {{Restaurant}}",
+			"watch": {
+				"Restaurant": "Restaurant"
+			},
+			"options": {
+				"hidden": true
+			}
+		},
+		"Name": {
+			"type": "string",
+			"title": "Name:",
+			"description": "Auf wen soll die Reservierung laufen?"
+		},
+		"Restaurant": {
+			"type": "string",
+			"title": "Restaurant: *",
+		    "minLength": 1
+		},
+		"Datum": {
+			"title": "Datum: *",
+			"type": "string",
+			"format": "date",
+			"minLength": 1
+		},
+		"Zeit": {
+			"type": "string",
+			"title": "Zeit: *",
+		    "minLength": 1
+		},
+		"Anzahl": {
+			"type": "string",
+			"title": "Anzahl Personen: *",
+		    "minLength": 1
+		},
+		"Bemerkungen": {
+			"type": "string",
+			"format": "textarea",
+			"title": "Bemerkungen:"
+		}
+	}
+}

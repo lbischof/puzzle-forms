@@ -1,0 +1,101 @@
+{
+	"type": "object",
+	"properties": {
+		"to": {
+			"type": "string",
+			"default": "backoffice@domain.ch",
+			"options": {
+				"hidden": true
+			}
+		},
+		"subject": {
+			"type": "string",
+			"template": "Meeting vorbereiten: {{Titel}}",
+			"watch": {
+				"Titel": "Titel"
+			},
+			"options": {
+				"hidden": true
+			}
+		},
+		"Datum": {
+			"title": "Datum / Zeit: *",
+			"type": "string",
+			"minLength": 1,
+			"propertyOrder": 10
+		},
+		"Titel": {
+			"type": "string",
+			"title": "Titel: *",
+			"description": "Um was geht's?",
+			"minLength": 1,
+			"propertyOrder": 11
+		},
+		"Anzahl personen": {
+			"title": "Anzahl Personen:",
+			"description": "Inkl. Referent / Leiter der Sitzung",
+			"type": "string"
+		},
+		"Personen die später kommen": {
+			"title": "Werden weitere Personen später erscheinen? Wann:",
+			"type": "string",
+			"format": "textarea"
+		},
+		"Sitzordnung": {
+			"title": "Sitzordung:",
+			"description": "Wie werden die Tische und Stühle angebracht?",
+			"type": "string",
+			"format": "textarea"
+		},
+		"benötigt": {
+			"type": "array",
+			"format": "checkbox",
+			"title": "Benötigt:",
+			"uniqueItems": true,
+			"items": {
+				"type": "string",
+				"enum": [
+					"Beamer",
+					"Notebook",
+					"Moderationskoffer"
+				]
+			}
+		},
+		"Sonstiges": {
+			"title": "Sonsiges:",
+			"description": "Was für Material wird sonst noch gebraucht? Blöcke, Kugelschreiber etc.",
+			"type": "string",
+			"format": "textarea"
+		},
+		"Essen": {
+			"title": "Essen:",
+			"description": "Begrüssungsgipfel/wegli, Früchte etc? Pausenverpfegung?",
+			"type": "string",
+			"format":"textarea"
+		},
+		"Trinken": {
+			"title": "Trinken:",
+			"description": "Welche Getränke sollen bereitstehen? Stilles/Sprudelwasser, Süssgetränk, Kaffee/Espressotassen?",
+			"type": "string",
+			"format":"textarea"
+		},
+		"Bemerkungen": {
+			"title": "Bemerkungen:",
+			"type": "string",
+			"format":"textarea"
+		},
+		"Sitzungszimmer": {
+			"type": "array",
+			"format": "checkbox",
+			"title": "Sitzungszimmer:",
+			"uniqueItems": true,
+			"items": {
+				"type": "string",
+				"enum": [
+					"GNU",
+					"TUX"
+				]
+			}
+		}
+	}
+}

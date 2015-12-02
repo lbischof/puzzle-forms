@@ -1,0 +1,174 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.container {
+  max-width: 960px;
+  margin: 100px auto 200px;
+}
+
+body {
+  font-family: 'Roboto';
+  visibility: hidden;
+  font-size: 16px;
+}
+
+input, button, select {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 4em;
+  font-family: 'Roboto Slab';
+  text-align: center;
+  color: #444;
+  font-weight: 400;
+}
+
+
+/* Index Page */
+
+.accordion {
+  position: relative;
+  background-color: #eee;
+  border: 1px solid #ddd;
+}
+
+.accordion::after {
+  content: "";
+  display: block;
+  height: 1em;
+  width: 100%;
+  background-color: #2ba659;
+}
+
+.accordion label {
+  position: relative;
+  text-align: center;
+  padding: 2em;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  background-color: #38cc70;
+  border-bottom: 1px solid #30bb64;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.accordion label:before {
+  content: "+";
+  font-size: 1.5em;
+  line-height: 0.5em;
+  float: left;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.accordion label:hover {
+  background-color: #2ba659;
+}
+.accordion div {
+  height: auto;
+  overflow: hidden;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-left: 0;
+}
+
+.accordion a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  padding-left: 2em;
+  color: #1E5A96;
+  width: 100%;
+}
+
+.accordion a:hover {
+  background: #c7eaec;
+}
+
+.active {
+  background-color: #2ba659 !important;
+}
+
+.active:before {
+  -webkit-transform: rotate(-225deg);
+  -ms-transform: rotate(-225deg);
+  transform: rotate(-225deg);
+}
+
+.hidden {
+  display: none;
+}
+
+.collapsed {
+  max-height: 0;
+}
+
+/* Form Page */
+
+#editor > div > h3 {
+    display:none;
+}
+
+/* override inline styles with important */
+#editor > div > div:nth-of-type(2) {
+    padding: 9px !important;
+    margin: 0 !important;
+    margin-bottom: 20px !important;
+    border: 1px solid #e3e3e3 !important;
+    border-radius: 0 !important;
+    background-color: #f5f5f5;
+}
+
+#editor h3 + div {
+    margin-bottom: 20px !important;
+}
+
+#editor label, #editor h3 {
+    font-weight: 400 !important;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    margin: 0 5px 15px;
+}
+
+input[type="text"], input[type="date"], textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    height: 100px !important;
+}
+
+select {
+    padding: 4px 8px;
+}
+
+#editor button {
+    background-color: #fff;
+    color: #444;
+}
+
+button {
+    color: #fff;
+    background-color: #3071a9;
+    border: 1px solid #285e8e;
+    padding: 10px;
+}
+
+#message {
+    margin: 20px;
+}

@@ -1,0 +1,72 @@
+{
+	"type": "object",
+	"properties": {
+		"to": {
+			"type": "string",
+			"default": "backoffice@domain.ch",
+			"options": {
+				"hidden": true
+			}
+		},
+		"subject": {
+			"type": "string",
+			"template": "Hotelreservierung: {{Hotelname}}",
+			"watch": {
+				"Hotelname": "Hotelname"
+			},
+			"options": {
+				"hidden": true
+			}
+		},
+		"Name": {
+			"type": "string",
+			"title": "Name, Vorname: *",
+			"minLength": 1
+		},
+		"Grund": {
+			"type": "string",
+			"title": "Grund: *",
+			"minLength": 1
+		},
+		"Hotelname": {
+			"type": "string",
+			"title": "Hotelname: *",
+			"minLength": 1
+		},
+		"Stadt": {
+			"type": "string",
+			"title": "Stadt: *",
+			"minLength": 1
+		},
+		"Einreise": {
+			"title": "Einreise: *",
+			"type": "string",
+			"format": "date",
+			"minLength": 1
+		},
+		"Abreise": {
+			"title": "Abreise: *",
+			"type": "string",
+			"format": "date",
+			"minLength": 1
+		},
+		"Doppelzimmer": {
+			"type": "string",
+			"title": "Doppelzimmer: (Optional)",
+			"description": "Doppelzimmer für Anzahl Personen.",
+			"minLength": 1
+		},
+		"Benötigt": {
+            "type": "array",
+            "format": "checkbox",
+            "title": "Benötigt:",
+            "uniqueItems": true,
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Raucherzimmer"
+                ]
+            }
+        }
+	}
+}

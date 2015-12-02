@@ -1,0 +1,23 @@
+html
+    head
+        title Puzzle Forms
+        link(href='/main.css', rel='stylesheet')
+        link(href='//fonts.googleapis.com/css?family=Roboto+Slab', rel='stylesheet')
+    body
+        div.container
+            div#index-page
+                h1 Puzzle Forms
+                div.accordion
+                    each files, folder in list
+                        label!= folder
+                        div.collapsed
+                            each file in files
+                                a(href="#/#{encodeURIComponent(folder)}/#{encodeURIComponent(file)}")!= file
+            div#form-page
+                h1#form-name
+                form#editor
+                button#send Senden
+                span#message
+
+    script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+    script(src='/concat.min.js')

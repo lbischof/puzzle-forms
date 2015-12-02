@@ -1,0 +1,76 @@
+{
+        "type": "object",
+        "properties": {
+                "to": {
+                        "type": "string",
+                        "default": "systems@domain.ch",
+                        "options": {
+                                "hidden": true
+                        }
+                },
+                "subject": {
+                        "type": "string",
+                        "template": "Projektsetup: {{projekt}}",
+                        "watch": {
+                                "projekt": "projekt"
+                        },
+                        "options": {
+                                "hidden": true
+                        }
+                },
+                "projekt": {
+                        "type": "string",
+                        "title": "Projekt: *",
+                        "description": "Name des neuen Projekts.",
+                        "minLength": 1
+                },
+                "customer": {
+                        "type": "string",
+                        "title": "Customer:"
+                },
+                "server":{
+                    "type": "array",
+                    "format": "table",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": ["Test","Integration","Produktion"]
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "datenbank": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "benötigt": {
+                        "type": "array",
+                        "format": "checkbox",
+                        "title": "Benötigt:",
+                        "uniqueItems": true,
+                        "items": {
+                                "type": "string",
+                                "enum": [
+                                        "Git repo",
+                                        "Redmine",
+                                        "Ptime"
+                                ]
+                        }
+                },
+                "mailingliste": {
+                        "type": "string",
+                        "title": "Mailingliste:"
+                },
+                "bemerkung": {
+                    "type": "string",
+                    "format": "textarea",
+                    "title" : "Bemerkungen:",
+                    "description": "zB. Benutzer und Berechtigungen"
+                }
+
+        }
+}

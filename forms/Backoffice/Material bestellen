@@ -1,0 +1,44 @@
+{
+	"type": "object",
+	"properties": {
+		"to": {
+			"type": "string",
+			"default": "backoffice@domain.ch",
+			"options": {
+				"hidden": true
+			}
+		},
+		"subject": {
+			"type": "string",
+			"template": "Materialbestellung: {{produkt}}",
+			"watch": {
+				"produkt": "produkt"
+			},
+			"options": {
+				"hidden": true
+			}
+		},
+		"produkt": {
+			"type": "string",
+			"title": "Produkt: *",
+			"minLength": 1
+		},
+			"anzahl": {
+			"type": "integer",
+			"title": "Anzahl: *",
+			"default": 1,
+			"minLength": 1
+		},
+		"termin": {
+			"title": "Termin: (optional)",
+			"type": "string",
+			"format": "date"
+		},
+			"sonstiges": {
+			"type": "string",
+			"format":"textarea",
+			"title": "Sonstiges:"
+		}
+
+	}
+}
