@@ -1,5 +1,5 @@
 {
-  "name": "mailforms",
+  "name": "puzzle-forms",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -10,7 +10,7 @@
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://git.puzzle.ch/pitc_sys/mailforms.git"
+    "url": "https://github.com/lbischof/puzzle-forms.git"
   },
   "author": "Lorenz Bischof",
   "dependencies": {
