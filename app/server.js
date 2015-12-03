@@ -21,25 +21,25 @@ var files = [
         'node_modules/json-editor/dist/jsoneditor.min.js',
         'node_modules/grapnel/dist/grapnel.min.js',
         'node_modules/xr/xr.js',
-        'static/garlic.min.js',
-        'static/main.js'
+        'app/static/garlic.min.js',
+        'app/static/main.js'
         ]
 
 var uglified = uglify.minify(files);
 
-fs.writeFile('static/concat.min.js', uglified.code, function (err){
+fs.writeFile('app/static/concat.min.js', uglified.code, function (err){
     if(err) {
         console.log(err);
     } else {
-        console.log("Script generated and saved:", 'static/concat.min.js');
-    }      
+        console.log("Script generated and saved:", 'app/static/concat.min.js');
+    }
 });
 
-var server_port = process.env.OPENSHIFT_NODE4_PORT || 8080
-var server_ip_address = process.env.OPENSHIFT_NODE4_IP || '127.0.0.1'
- 
+var server_port = process.env.SERVER_PORT || 8080
+var server_ip_address = process.env.SERVER_IP || '127.0.0.1'
+
 var server = app.listen(server_port, server_ip_address,  function () {
   var host = server.address().address;
   var port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
+  console.log('Puzzle Forms listening at http://%s:%s', host, port);
 });

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node server.js",
+    "start": "node app/server.js",
     "test": "node test/test.js | faucet"
   },
   "pre-commit": "npm test",

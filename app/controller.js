@@ -9,7 +9,7 @@ var dto        = require('directory-to-object');
 var pretty     = require('json-human');
 
 
-var renderIndex = function(req, res) {  
+var renderIndex = function(req, res) {
     getForms().then(function(data) {
         res.render('index', {list: data});
     });
@@ -20,7 +20,7 @@ var getForm = function(req, res) {
     fs.readFile(formPath, 'utf-8', function(err, data) {
         if (err) return res.sendStatus(404);
         res.send(hjson.parse(data));
-    });   
+    });
 }
 
 
@@ -67,7 +67,7 @@ var createHtml = function(json) {
 }
 
 var addStyles = function(html) {
-    return new Promise(function(resolve, reject) { 
+    return new Promise(function(resolve, reject) {
         fs.readFile('email.css', 'utf-8', function(err, data) {
             resolve(juice.inlineContent(html, data));
         });

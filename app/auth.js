@@ -8,6 +8,10 @@ module.exports = function (req, res, next) {
         return res.redirect('https://' + req.get('Host') + req.url);
     }
 
+    if (process.env.DISABLE_AUTH) {
+        return next();
+    }
+
     function unauthorized(res) {
         res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
         return res.sendStatus(401);

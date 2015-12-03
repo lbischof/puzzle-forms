@@ -6,7 +6,7 @@ var fakefs     = require('fake-fs');
 fakefs         = new fakefs;
 var fs         = require('fs');
 var rewire     = require('rewire');
-var controller = rewire('../controller');
+var controller = rewire('../app/controller');
 
 test('Create html from json', function(t) {
     var should = '<table class="jh-type-object jh-root"><tbody><tr><th class="jh-key jh-object-key">test</th><td class="jh-value jh-object-value"><span class="jh-type-string">test</span></td></tr></tbody></table>';
@@ -24,7 +24,7 @@ test('Add styles to html', function(t) {
             t.equal(path, 'email.css', "check if correct file is read");
             cb(null, "span { color: red; }");
         }
-    } 
+    }
     controller.__set__("fs", fsMock);
     controller.addStyles(html).then(function(data) {
         t.equal(should, data, "returns html with inline styles");
@@ -51,7 +51,7 @@ test('Check forms syntax', function(t){
                     t.ok(parsed.properties.hasOwnProperty('to'), formPath + " must have 'to' property");
                     // check if 'subject' key exists
                     t.ok(parsed.properties.hasOwnProperty('subject'), formPath + " must have 'subject' property");
-                }); 
+                });
             }
         }
         t.end();
