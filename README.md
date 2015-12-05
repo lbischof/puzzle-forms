@@ -7,7 +7,7 @@ Under construction. Pull requests are appreciated.
 ## Usage
 ### Docker
 Build: docker build -t forms .
-Run: docker run -it --name forms -p 8080:8080 forms
+Run: docker run -it --name forms -p 8080:8080 -v $(pwd)/forms:/usr/src/forms forms
 
 ### Templates
 Examples are in the forms folder. More infos regarding syntax: [json editor](https://www.npmjs.com/package/json-editor), [markup.js](https://github.com/adammark/Markup.js/)
