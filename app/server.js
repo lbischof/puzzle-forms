@@ -7,6 +7,7 @@ var fs         = require('fs');
 var uglify     = require("uglify-js");
 
 var router     = require('./router');
+var config     = require('./config');
 var app        = express();
 
 app.use(session({secret: "secret"}));
@@ -35,8 +36,8 @@ fs.writeFile('app/static/concat.min.js', uglified.code, function (err){
     }
 });
 
-var server_port = process.env.SERVER_PORT || 8080
-var server_ip_address = process.env.SERVER_IP || '127.0.0.1'
+var server_port = config.server_port || 8080
+var server_ip_address = config.server_ip || '127.0.0.1'
 
 var server = app.listen(server_port, server_ip_address,  function () {
   var host = server.address().address;

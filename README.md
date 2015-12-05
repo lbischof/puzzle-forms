@@ -12,10 +12,11 @@ Run: docker run -it --rm --name forms -p 8080:8080 -v $(pwd)/forms:/usr/src/form
 ### Templates
 Examples are in the forms folder. More infos regarding syntax: [json editor](https://www.npmjs.com/package/json-editor), [markup.js](https://github.com/adammark/Markup.js/)
 
-### Environment variables
-DISABLE_AUTH: If this is set the basic auth is disabled<br>
-LDAP_HOST: The ldap hostname<br>
-LDAP_BASEDN: Specify who is allowed to login
+### Config
+disable_auth: If this is set the basic auth is disabled<br>
+ldap_host: The ldap hostname<br>
+ldap_basedn: Specify who is allowed to login<br>
+smtp: Hash that is passed to [nodemailer](https://github.com/andris9/Nodemailer)
 
 ## Testing
 There are already a few simple tests written with [tape](https://www.npmjs.com/package/tape). "npm test"

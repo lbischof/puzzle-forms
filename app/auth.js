@@ -1,6 +1,7 @@
 var basicAuth = require('basic-auth');
-var ldap = require('ldapjs');
-var util = require('util');
+var ldap      = require('ldapjs');
+var util      = require('util');
+var config    = require('./config');
 
 module.exports = function (req, res, next) {
     // redirect to https on openshift
@@ -19,8 +20,8 @@ module.exports = function (req, res, next) {
         return unauthorized(res);
     }
 
-    var ldap_server = 'ldap://' + process.env.LDAP_HOST;
-    var ldap_base_dn = process.env.LDAP_BASEDN;
+    var ldap_server = 'ldap://' + config.ldap_host
+    var ldap_base_dn = config.ldap_basedn;
     var ldap_dn = util.format('uid=%s,%s', user.name, ldap_base_dn);
 
     var client = ldap.createClient({

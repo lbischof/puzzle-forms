@@ -7,7 +7,7 @@ var nodemailer = require('nodemailer');
 var hjson      = require('hjson');
 var dto        = require('directory-to-object');
 var pretty     = require('json-human');
-
+var config     = require('./config');
 
 var renderIndex = function(req, res) {
     getForms().then(function(data) {
@@ -44,7 +44,8 @@ var sendMail = function(req, res) {
         .then(send)
         .then(function() {
             res.send({message: 'Ihr Email wurde versandt. Sie erhalten eine Kopie.'});
-        }).catch(function(){
+        }).catch(function(error){
+            console.log(error);
             res.sendStatus(500);
         });
 }
@@ -68,7 +69,7 @@ var createHtml = function(json) {
 
 var addStyles = function(html) {
     return new Promise(function(resolve, reject) {
-        fs.readFile('email.css', 'utf-8', function(err, data) {
+        fs.readFile('app/static/email.css', 'utf-8', function(err, data) {
             resolve(juice.inlineContent(html, data));
         });
     });
@@ -76,7 +77,7 @@ var addStyles = function(html) {
 
 var send = function(json) {
     return new Promise(function(resolve, reject) {
-        var transporter = nodemailer.createTransport({host: 'mail.puzzle.ch'});
+        var transporter = nodemailer.createTransport(config.smtp);
         resolve(transporter.sendMail(json));
     });
 }

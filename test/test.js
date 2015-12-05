@@ -21,7 +21,7 @@ test('Add styles to html', function(t) {
     var html = '<span>test</span>';
     var fsMock = {
         readFile: function(path, encoding, cb) {
-            t.equal(path, 'email.css', "check if correct file is read");
+            t.equal(path, 'app/static/email.css', "check if correct file is read");
             cb(null, "span { color: red; }");
         }
     }

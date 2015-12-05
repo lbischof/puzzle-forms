@@ -1,10 +1,10 @@
 var express    = require("express");
 var controller = require("./controller");
 var auth       = require("./auth");
-
+var config     = require("./config");
 var router = express.Router();
 
-if (!process.env.DISABLE_AUTH) {
+if (!config.disable_auth) {
     router.use(auth);
 }
 
