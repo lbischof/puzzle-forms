@@ -3,7 +3,10 @@ var controller = require("./controller");
 var auth       = require("./auth");
 
 var router = express.Router();
-router.use(auth);
+
+if (!process.env.DISABLE_AUTH) {
+    router.use(auth);
+}
 
 router.use(express.static('app/static'));
 

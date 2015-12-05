@@ -8,10 +8,6 @@ module.exports = function (req, res, next) {
         return res.redirect('https://' + req.get('Host') + req.url);
     }
 
-    if (process.env.DISABLE_AUTH) {
-        return next();
-    }
-
     function unauthorized(res) {
         res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
         return res.sendStatus(401);
@@ -23,8 +19,8 @@ module.exports = function (req, res, next) {
         return unauthorized(res);
     }
 
-    var ldap_server = 'ldap://' + process.env.PUZZLE_LDAP_HOST_1;
-    var ldap_base_dn = process.env.PUZZLE_LDAP_BASEDN_MEMBERS;
+    var ldap_server = 'ldap://' + process.env.LDAP_HOST;
+    var ldap_base_dn = process.env.LDAP_BASEDN;
     var ldap_dn = util.format('uid=%s,%s', user.name, ldap_base_dn);
 
     var client = ldap.createClient({
