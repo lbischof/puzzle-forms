@@ -7,7 +7,6 @@ LABEL io.k8s.display-name="Puzzle Forms" \
       io.openshift.tags="forms,node" \
 	  io.openshift.s2i.scripts-url="image://.s2i"
 
-RUN useradd -md /usr/src forms
 WORKDIR /usr/src
 
 COPY package.json /usr/src
@@ -15,7 +14,8 @@ RUN npm install
 
 COPY . /usr/src
 
-RUN chown -R forms /usr/src
-USER forms
+RUN chown -R 1001 /usr/src && \
+    chmod go+rw /usr/src/app/static
+USER 1001
 
 ENTRYPOINT ["npm","start"]
