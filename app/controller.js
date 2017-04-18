@@ -4,7 +4,6 @@ var async      = require("async");
 var nodemailer = require('nodemailer');
 var hjson      = require('hjson');
 var dto        = require('directory-to-object');
-var config     = require('./config');
 var yaml       = require('js-yaml');
 
 var renderIndex = function(req, res) {
@@ -53,7 +52,7 @@ var getForms = function() {
 
 var send = function(json) {
     return new Promise(function(resolve, reject) {
-        var transporter = nodemailer.createTransport(config.smtp);
+        var transporter = nodemailer.createTransport({ host: process.env.SMTP_HOST });
         resolve(transporter.sendMail(json));
     });
 }
