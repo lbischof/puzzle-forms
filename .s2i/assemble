@@ -2,4 +2,6 @@
 
 echo "---> Installing application source"
 rm -rf forms
+rm -rf /tmp/src/.git
+rm -f /tmp/src/README.md
 cp -Rf /tmp/src ./forms
