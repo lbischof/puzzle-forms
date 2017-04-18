@@ -18,4 +18,4 @@ RUN chown -R 1001 /usr/src && \
     chmod go+rw /usr/src/app/static
 USER 1001
 
-ENTRYPOINT ["npm","start"]
+CMD ["npm","start"]
