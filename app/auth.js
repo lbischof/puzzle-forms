@@ -3,11 +3,6 @@ var ldap      = require('ldapjs');
 var util      = require('util');
 
 module.exports = function (req, res, next) {
-    // redirect to https on openshift
-    if((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https') && process.env.OPENSHIFT_GEAR_NAME) {
-        return res.redirect('https://' + req.get('Host') + req.url);
-    }
-
     function unauthorized(res) {
         res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
         return res.sendStatus(401);

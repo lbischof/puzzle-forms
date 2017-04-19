@@ -1,7 +1,6 @@
 FROM node
 
 EXPOSE 8080
-ENV DISABLE_AUTH true
 
 LABEL io.k8s.display-name="Puzzle Forms" \
       io.openshift.expose-services="8080:http" \
