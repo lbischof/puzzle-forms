@@ -51,10 +51,8 @@ var getForms = function() {
 }
 
 var send = function(json) {
-    return new Promise(function(resolve, reject) {
-        var transporter = nodemailer.createTransport({ host: process.env.SMTP_HOST });
-        resolve(transporter.sendMail(json));
-    });
+    var transporter = nodemailer.createTransport({ host: process.env.SMTP_HOST });
+    return transporter.sendMail(json);
 }
 
 exports.renderIndex = renderIndex;
