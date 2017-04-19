@@ -83,7 +83,7 @@ function sendMail() {
         $("#editor").garlic('destroy'); //needs testing. docs say this doesn't work.
         var data = jsoneditor.getValue();
 
-        fetchival("/mail").post(data)
+        fetchival("/mail", { credentials: "same-origin"}).post(data)
             .then(function(res) {
                 $('#message').text(res.message);
                 // disable send button for 5 seconds to limit accidental sends
