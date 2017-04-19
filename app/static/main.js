@@ -33,7 +33,7 @@ function showFormPage(folder, file) {
             // show body (hidden to avoid fouc)
             $('body').css('visibility', 'visible');
             // show filename as header
-            $('#form-name').text(file);            
+            $('#form-name').text(file);
             $('#form-page').show();
             $('#editor').garlic({
                 onRetrieve: function ( elem, retrievedValue ) {
