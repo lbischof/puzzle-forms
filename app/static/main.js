@@ -27,7 +27,7 @@ function showFormPage(folder, file) {
     $('#index-page').hide();
     // remove message that apears after sending email (in case someone backed out after sending an email)
     $('#message').text('');
-    return fetchival("/form/"+folder+"/"+file).get()
+    return fetchival("/form/"+folder+"/"+file, { credentials: "same-origin"}).get()
         .then(setSchema)
         .then(function(){
             // show body (hidden to avoid fouc)
@@ -43,7 +43,8 @@ function showFormPage(folder, file) {
                 }
             });
 
-        }).catch(function() {
+        }).catch(function(err) {
+            console.error(err);
             // show body (hidden to avoid fouc)
             $('body').css('visibility', 'visible');
             $('#form-page').text('Form existiert nicht');
@@ -51,15 +52,12 @@ function showFormPage(folder, file) {
 }
 
 function setSchema(schema) {
-    return new Promise(function(resolve, reject) {
-        if(jsoneditor) jsoneditor.destroy();
-        var editor = document.getElementById('editor');
-        jsoneditor = new JSONEditor(editor,{
-            schema: schema
-        });
-        window.jsoneditor = jsoneditor;
-        resolve();
+    if(jsoneditor) jsoneditor.destroy();
+    var editor = document.getElementById('editor');
+    jsoneditor = new JSONEditor(editor,{
+        schema: schema
     });
+    window.jsoneditor = jsoneditor;
 }
 
 $('.accordion').on('click', 'label', function(e) {
