@@ -32,7 +32,7 @@ var sendMail = function(req, res) {
         to: to,
         cc: from,
         subject: subject,
-        html: yaml.safeDump(req.body).replace(/\n/g, '<br>')
+        text: yaml.safeDump(req.body)
     }).then(function() {
         res.send({message: 'Ihr Email wurde versandt. Sie erhalten eine Kopie.'});
     }).catch(function(error){
