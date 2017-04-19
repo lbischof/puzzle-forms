@@ -20,7 +20,7 @@ var files = [
         'node_modules/markup-js/src/markup.min.js',
         'node_modules/json-editor/dist/jsoneditor.min.js',
         'node_modules/grapnel/dist/grapnel.min.js',
-        'node_modules/fetchival/index.min.js',
+        'node_modules/xr/xr.js',
         'app/static/garlic.min.js',
         'app/static/main.js'
         ]

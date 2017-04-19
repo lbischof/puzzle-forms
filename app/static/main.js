@@ -27,13 +27,13 @@ function showFormPage(folder, file) {
     $('#index-page').hide();
     // remove message that apears after sending email (in case someone backed out after sending an email)
     $('#message').text('');
-    return fetchival("/form/"+folder+"/"+file).get()
+    return xr.get("/form/"+folder+"/"+file)
         .then(setSchema)
         .then(function(){
             // show body (hidden to avoid fouc)
             $('body').css('visibility', 'visible');
             // show filename as header
-            $('#form-name').text(file);
+            $('#form-name').text(file);            
             $('#form-page').show();
             $('#editor').garlic({
                 onRetrieve: function ( elem, retrievedValue ) {
@@ -85,7 +85,7 @@ function sendMail() {
         $("#editor").garlic('destroy'); //needs testing. docs say this doesn't work.
         var data = jsoneditor.getValue();
 
-        fetchival("/mail").post(data)
+        xr.post("/mail", data)
             .then(function(res) {
                 $('#message').text(res.message);
                 // disable send button for 5 seconds to limit accidental sends
